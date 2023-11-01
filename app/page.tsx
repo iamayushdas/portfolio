@@ -1,13 +1,15 @@
-import Image from "next/image";
-import Me from "@/public/profile-hd.png";
 import ParagraphSlider from "./components/ParagraphSlider";
 import Typewriter from "./components/TypeWriter";
+import ImageSwitcher from "./components/ImageSwitcher";
 export default function Home() {
   const paragraphs = [
-    "I am a dedicated and versatile software developer with a passion for crafting innovative solutions. With a strong foundation in web development and a proficiency in a diverse range of technologies, including ReactJS, Next.js, GraphQL, SASS, and Azure DevOps, I excel in creating scalable, user-centric applications.",
-    "My experience at Accenture provided extensive exposure to various aspects of software development, from building composable component libraries and implementing Headless UI components to effectively utilizing Bit.dev for component management and versioning. This emphasized the significance of clean, maintainable code. I am committed to continuous learning, keeping pace with the latest trends in technology to deliver high-quality, efficient solutions.",
-    "Collaboration, problem-solving, and adaptability are integral to my approach, ensuring seamless integration within cross-functional teams. My proficiency in Figma and experience in leveraging CMS like Contentful have been instrumental in the design and management of content-driven applications. I am motivated by the pursuit of excellence in crafting engaging user experiences and eagerly seek new challenges in the ever-evolving landscape of software development.",
+    "I am a dedicated and versatile software developer passionate about crafting innovative solutions. With a strong foundation in web development and proficiency in technologies like ReactJS, Next.js, GraphQL, SASS, and Azure DevOps, I excel in creating user-centric applications.",
+    "My experience at Accenture provided exposure to various aspects of software development, from building component libraries to effectively using Bit.dev for component management and versioning. Emphasizing clean, maintainable code, I am committed to learning the latest technology trends for efficient solutions.",
+    "Collaboration, problem-solving, and adaptability are integral to my approach, ensuring seamless integration within cross-functional teams. Proficiency in Figma and leveraging CMS like Contentful have been instrumental in content-driven application design and management.",
+    "I am motivated by excellence in crafting engaging user experiences and eagerly seek challenges in the ever-evolving landscape of software development.",
   ];
+
+  console.log(paragraphs);
 
   return (
     <>
@@ -19,11 +21,7 @@ export default function Home() {
         </div>
         <div className="items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-3 xl:space-y-0">
           <div className="flex flex-col items-center pt-8">
-            <Image
-              alt="picture-of-ayush"
-              src={Me}
-              className="h-48 w-48 rounded-full object-cover object-top"
-            />
+            <ImageSwitcher />
             <h3 className="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">
               <Typewriter text="Ayush Das" delay={100} />
             </h3>
@@ -82,10 +80,7 @@ export default function Home() {
                   <path d="M941.3 296.1a112.3 112.3 0 00-79.2-79.3C792.2 198 512 198 512 198s-280.2 0-350.1 18.7A112.12 112.12 0 0082.7 296C64 366 64 512 64 512s0 146 18.7 215.9c10.3 38.6 40.7 69 79.2 79.3C231.8 826 512 826 512 826s280.2 0 350.1-18.8c38.6-10.3 68.9-40.7 79.2-79.3C960 658 960 512 960 512s0-146-18.7-215.9zM423 646V378l232 133-232 135z" />
                 </svg>
               </a>
-              <a
-                href="https://www.instagram.com/iamayushdas/"
-                target="_blank"
-              >
+              <a href="https://www.instagram.com/iamayushdas/" target="_blank">
                 <svg
                   viewBox="0 0 1024 1024"
                   fill="currentColor"
