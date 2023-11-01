@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/app/db";
 import nodemailer from "nodemailer";
+import path from 'path';
+import { promises as fs } from 'fs';
 
 const transporter = nodemailer.createTransport({
   service: "Gmail",
@@ -26,13 +28,17 @@ export default async function handler(
         },
       });
 
-      const userMailText = `Hello ${name},\n\nThank you for your message. We received the following details:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}\n\nWe will get back to you soon.`;
+      const filePath = path.join(process.cwd(), 'public', 'mailTemplate.html');
+      const htmlTemplate = await fs.readFile(filePath, 'utf-8');
+
+      const dynamicHTML = htmlTemplate
+        .replace(/{{NAME}}/g, name)
 
       const userMailInfo = await transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: email,
         subject: "Thank you for contacting us!",
-        text: userMailText,
+        html: dynamicHTML,
       });
 
       const adminMailText = `A new message has been received:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
