@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { postEntry } from "../action";
+import { postEntry } from "../../pages/api/action";
 import { useFormStatus } from "react-dom";
 
 const Form = () => {

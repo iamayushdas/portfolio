@@ -1,7 +1,7 @@
 "use server"
 
 import { revalidatePath } from "next/cache";
-import prisma from "./db";
+import prisma from "../../app/db";
 
 export async function postEntry(formData: FormData){
     "use server";
