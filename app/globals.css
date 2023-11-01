@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@media (max-width: 390px) {
+  .skills {
+    grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns until 390px */
+  }
+}
