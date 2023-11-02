@@ -9,8 +9,6 @@ export default function Home() {
     "I am motivated by excellence in crafting engaging user experiences and eagerly seek challenges in the ever-evolving landscape of software development.",
   ];
 
-  console.log(paragraphs);
-
   return (
     <>
       <div className="divide-y divide-gray-100 dark:divide-gray-700">
