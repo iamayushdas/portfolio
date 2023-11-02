@@ -8,10 +8,6 @@ type Skill = {
   imageUrl: string;
 };
 
-interface Props {
-  data: Skill[];
-}
-
 const getSkills = async () => {
   const query = `*[_type == 'skills'] {
     name,
@@ -27,7 +23,7 @@ const getSkills = async () => {
 
 export const revalidate = 60;
 
-const Skills: React.FC<Props> = async () => {
+const Skills = async () => {
   const data: Skill[] = await getSkills();
 
   const categorizedSkills: { [key: string]: Skill[] } = data.reduce(
