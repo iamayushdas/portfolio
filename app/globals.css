@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.skillLogo {
+  width: 120px;
+  height: 120px;
+  margin: 5% 2%;
+}
 
 @media (max-width: 390px) {
   .skills {
     grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns until 390px */
+  }
+}
+
+@media (max-width: 600px) {
+  .skillLogo {
+    width: 80px;
+    height: 80px;
   }
 }

@@ -39,5 +39,11 @@ export default {
       type: 'text',
       description: 'Description of the experience',
     },
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'string',
+      description: 'Location of the experience',
+    },
   ],
-}
+};

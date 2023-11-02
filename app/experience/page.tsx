@@ -1,16 +1,23 @@
 import Image from "next/image";
 import { client } from "../lib/sanity";
+import ExperienceDescription from "../components/DescriptionToggle";
 interface Data {
-  name: string;
-  _id: string;
-  imageUrl: string;
+  title: string;
+  company: string;
+  companyLogo: string;
+  startDate: string;
+  endDate: string;
+  description: string;
 }
 
-const getSkills = async () => {
-  const query = `*[_type == 'skills'] {
-    name,
-    _id,
-    'imageUrl': skillLogo.asset->url
+const getExperiences = async () => {
+  const query = `*[_type == 'experience'] {
+    title,
+    company,
+    'companyLogo': companyLogo.asset->url,
+    startDate,
+    endDate,
+    description
   }`;
 
   const data = await client.fetch(query);
@@ -20,33 +27,38 @@ const getSkills = async () => {
 
 export const revalidate = 60;
 
-const Skills = async () => {
-  const data: Data[] = await getSkills();
+const Experience = async () => {
+  const experiences: Data[] = await getExperiences();
 
   return (
-    <div className="divide-y divide-gray-200 dark:divide-gray-700">
-      <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-light text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-          All Skills
-        </h1>
-      </div>
-      <div
-        style={{
-          placeItems: "center",
-        }}
-        className="grid gap-y-8 sm:gap-2 md:gap-6 lg:gap-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 pt-8"
-      >
-        {data.map((project) => (
-          <div key={project._id} className="">
-            <div className="h-20 w-20 img relative rounded-full overflow-hidden">
-              <Image
-                layout="fill"
-                objectFit="cover"
-                src={project.imageUrl}
-                alt={project.name}
-              />
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">Experience</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {experiences.map((experience, index) => (
+          <div key={index} className="border p-4 rounded shadow">
+            <div className="flex flex-col items-center mb-3">
+              {/* <div className="h-12 w-12 overflow-hidden rounded-full mr-4"> */}
+              <div className="relative w-full h-10">
+                <Image
+                  src={experience.companyLogo}
+                  alt={experience.company}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              {/* </div> */}
+              <h2 className="text-lg font-semibold">{experience.title}</h2>
             </div>
-            <p className="text-center">{project.name}</p>
+            <p>
+              <span className="font-semibold">Company:</span>{" "}
+              {experience.company}
+            </p>
+            <p>
+              <span className="font-semibold">Period:</span>{" "}
+              {experience.startDate} - {experience.endDate?experience.endDate:"current"}
+            </p>
+            {/* <p className="mt-2">{experience.description}</p> */}
+            <ExperienceDescription description={experience.description} />
           </div>
         ))}
       </div>
@@ -54,4 +66,4 @@ const Skills = async () => {
   );
 };
 
-export default Skills;
+export default Experience;
