@@ -66,7 +66,7 @@ const Skills = async () => {
                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                   <Image
                     layout="fill"
-                    objectFit="cover"
+                    objectFit="contain"
                     src={skill.imageUrl}
                     alt={skill.name}
                   />

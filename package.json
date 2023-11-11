@@ -13,6 +13,8 @@
     "@headlessui/react": "^1.7.17",
     "@prisma/client": "^5.5.2",
     "@types/nodemailer": "^6.4.13",
+    "contentful": "^10.6.7",
+    "dotenv": "^16.3.1",
     "next": "14.0.1",
     "next-sanity": "^5.5.10",
     "next-themes": "^0.2.1",
