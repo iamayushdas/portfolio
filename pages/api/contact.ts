@@ -35,7 +35,7 @@ export default async function handler(
         .replace(/{{NAME}}/g, name)
 
       const userMailInfo = await transporter.sendMail({
-        from: process.env.EMAIL_USER,
+        from: process.env.EMAIL_USER_SEND,
         to: email,
         subject: "Thank you for contacting us!",
         html: dynamicHTML,
