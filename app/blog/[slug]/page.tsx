@@ -1,8 +1,8 @@
 import { client, urlFor } from "@/app/lib/sanity";
 import { blog } from "./interface";
-import BackButton from "./BackButton";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
+import BackButton from "@/app/components/BackButton";
 
 async function getBlog(slug: string) {
   const query = `

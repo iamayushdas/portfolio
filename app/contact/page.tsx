@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import './contact.css'
+import FloatingSocialHandle from "../components/FloatingSocialHandle";
 const ContactForm = () => {
   const initialFormData = {
     name: "",
@@ -52,6 +53,7 @@ const ContactForm = () => {
           Ask me anything !
         </h1>
       </div>
+      <FloatingSocialHandle />
       <div className="w-full">
         <div className="max-w-[500px] mx-auto mt-8">
           <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">

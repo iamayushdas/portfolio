@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { client } from "../lib/sanity";
+import FloatingSocialHandle from "../components/FloatingSocialHandle";
 interface Data {
   title: string;
   overview: string;
@@ -32,6 +33,7 @@ const Projects = async () => {
           My Projects
         </h1>
       </div>
+      <FloatingSocialHandle />
       <div className="grid gap-y-8 sm:gap-6 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-10 pt-8">
         {data.map((project) => (
           <article

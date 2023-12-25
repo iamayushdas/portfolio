@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { client } from "../lib/sanity";
+import FloatingSocialHandle from "../components/FloatingSocialHandle";
 
 type Skill = {
   category: any;
@@ -43,6 +44,7 @@ const Skills = async () => {
           My Skills
         </h1>
       </div>
+      <FloatingSocialHandle />
       <div>
         {Object.keys(categorizedSkills).map((category, index) => (
           <div

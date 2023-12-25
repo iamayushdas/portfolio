@@ -1,3 +1,4 @@
+import FloatingSocialHandle from "../components/FloatingSocialHandle";
 import Form from "../components/Form";
 import prisma from "../db";
 
@@ -23,6 +24,7 @@ const Guestbook = async () => {
           Open Feedbacks!
         </h1>
       </div>
+      <FloatingSocialHandle />
       <div className="w-full">
         <div className="max-w-[500px] mx-auto mt-8">
           <Form />

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { client } from "../lib/sanity";
 import ExperienceDescription from "../components/DescriptionToggle";
+import FloatingSocialHandle from "../components/FloatingSocialHandle";
 interface Data {
   title: string;
   company: string;
@@ -37,6 +38,7 @@ const Experience = async () => {
           Experience
         </h1>
       </div>
+      <FloatingSocialHandle />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {experiences.map((experience, index) => (
           <div key={index} className="border p-4 rounded shadow">
