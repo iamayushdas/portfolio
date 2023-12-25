@@ -23,8 +23,9 @@ const FloatingSocialHandle: React.FC = () => {
       <Button
         onClick={toggleSocialHandles}
         className="fixed bottom-4 bg-teal-100 left-4 z-10 text-white p-2 rounded-full cursor-pointer hover:bg-teal-500 shadow-lg"
+        style={{ width: "40px", height: "40px" }}
       >
-        {socialHandlesVisible ? <X className="text-teal-500 hover:text-white w-full h-full" /> : <MessagesSquare className="text-teal-500 hover:text-white w-full h-full"/>}
+        {socialHandlesVisible ? <X className="text-teal-500 hover:text-white" /> : <MessagesSquare className="text-teal-500 hover:text-white"/>}
       </Button>
     </div>
   );
