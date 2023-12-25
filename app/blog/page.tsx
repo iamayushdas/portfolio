@@ -18,6 +18,8 @@ async function getBlogs() {
 
   return blogs;
 }
+
+export const revalidate = 60;
 const Blog = async () => {
   const data: simpleBlogCard[] = await getBlogs();
   return (
