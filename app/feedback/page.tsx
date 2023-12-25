@@ -29,7 +29,7 @@ const Guestbook = async () => {
           <div className="flex flex-col space-y-2">
             {data.map((entry) => (
               <div key={entry.id} className="w-full text-sm break-words">
-                {entry.username} : {entry.message}
+                <span className="font-semibold">{entry.username}</span> : <span className="italic">{entry.message}</span>
               </div>
             ))}
           </div>
