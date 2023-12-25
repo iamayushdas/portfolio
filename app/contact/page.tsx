@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-
+import './contact.css'
 const ContactForm = () => {
   const initialFormData = {
     name: "",
@@ -12,12 +12,12 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState("");
 
-  const handleChange = (e:any) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -62,7 +62,7 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name"
-                className="w-full p-2 focus:ring-teal-500 focus:border-teal-500 block border-neutral-300 rounded bg-gray-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+                className="w-full p-2 focus:ring-teal-500 focus:border-teal-500 block border-neutral-300 rounded bg-gray-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 my-input"
               />
             </div>
             <div className="mb-4">
@@ -72,7 +72,7 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email"
-                className="w-full p-2 focus:ring-teal-500 focus:border-teal-500 block border-neutral-300 rounded bg-gray-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+                className="w-full p-2 focus:ring-teal-500 focus:border-teal-500 block border-neutral-300 rounded bg-gray-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 my-input"
               />
             </div>
             <div className="mb-6">
@@ -81,11 +81,11 @@ const ContactForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Your Message"
-                className="w-full p-2 focus:ring-teal-500 focus:border-teal-500 block border-neutral-300 rounded bg-gray-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+                className="w-full p-2 focus:ring-teal-500 focus:border-teal-500 block border-neutral-300 rounded bg-gray-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 my-input"
                 rows={4}
               ></textarea>
             </div>
-           
+
             <div>
               <button
                 type="submit"
@@ -99,10 +99,10 @@ const ContactForm = () => {
             </div>
           </form>
           {submissionStatus === "Sent" && (
-              <div className="bg-green-200 dark:bg-green-700 text-green-700 dark:text-green-100 p-2 rounded mt-2">
-                Message sent successfully!
-              </div>
-            )}
+            <div className="bg-green-200 dark:bg-green-700 text-green-700 dark:text-green-100 p-2 rounded mt-2">
+              Message sent successfully!
+            </div>
+          )}
         </div>
       </div>
     </div>

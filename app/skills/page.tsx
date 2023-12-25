@@ -45,35 +45,44 @@ const Skills = async () => {
       </div>
       <div>
         {Object.keys(categorizedSkills).map((category, index) => (
-          <div key={index} style={{ margin: "15px 0", borderBottom: '1px solid #e5e7eb', paddingBottom:'15px'  }}>
-            <h2 className=" space-y-2 text-2xl font-extrabold leading-9 tracking-light text-gray-900 dark:text-gray-100">
+          <div
+            key={index}
+            style={{
+              margin: "15px 0",
+              borderBottom: "1px solid #e5e7eb",
+              paddingBottom: "40px",
+            }}
+          >
+            <h2 className="mb-4 space-y-2 text-2xl font-extrabold leading-9 tracking-light text-gray-900 dark:text-gray-100">
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </h2>
             <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                justifyContent: "start",
-                gap: "8%"
+                justifyContent: "flex-start",
+                gap: "10%",
               }}
             >
-             {categorizedSkills[category].map((skill) => (
-              <div
-                key={skill._id}
-                className="skillLogo"
-                style={{ textAlign: 'center' }}
-              >
-                <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                  <Image
-                    layout="fill"
-                    objectFit="contain"
-                    src={skill.imageUrl}
-                    alt={skill.name}
-                  />
+              {categorizedSkills[category].map((skill) => (
+                <div
+                  key={skill._id}
+                  className="skillLogo"
+                  style={{ display: "flex", flexDirection:'column',alignItems:'center', marginBottom:'10px', width:'60px'}}
+                >
+                  <div>
+                    <Image
+                      style={{height: '60px'}}
+                      width={60}
+                      height={60}
+                      objectFit="contain"
+                      src={skill.imageUrl}
+                      alt={skill.name}
+                    />
+                  </div>
+                  <p>{skill.name}</p>
                 </div>
-                <p style={{marginBottom:"20px"}}>{skill.name}</p>
-              </div>
-            ))}
+              ))}
             </div>
           </div>
         ))}

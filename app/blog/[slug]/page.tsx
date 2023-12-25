@@ -29,7 +29,7 @@ export default async function BlogArticle({
   return (
     <div className="mt-8 grid place-items-center">
       <h1>
-        <span className="mt-2 pr-8 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl sm:m-0">
+        <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl sm:m-0">
           <BackButton />
           {blog.title}
         </span>
