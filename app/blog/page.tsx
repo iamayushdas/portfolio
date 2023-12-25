@@ -35,7 +35,7 @@ const Blog = async () => {
               alt="image"
               width={500}
               height={500}
-              className="rounded-t-lg h-[200px] object-cover"
+              className="rounded-t-lg w-full h-[200px] object-cover"
             />
             <CardContent className="mt-5">
                 <h3 className="text-lg line-clamp-2 font-bold">{post.title}</h3>
