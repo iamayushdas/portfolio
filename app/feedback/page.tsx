@@ -20,7 +20,7 @@ const Guestbook = async () => {
     <div className="divide-y divide-gray-200 dark:divide-gray-700">
       <div className="space-y-2 pt-6 pb-8 md:space-y-5">
         <h1 className="text-3xl font-extrabold leading-9 tracking-light text-gray-900 dark:text-gray-100 sm:text-4x sm:leading-10 md:text-6xl md:leading-14">
-          Guestbook
+          Open Feedbacks!
         </h1>
       </div>
       <div className="w-full">
@@ -29,7 +29,7 @@ const Guestbook = async () => {
           <div className="flex flex-col space-y-2">
             {data.map((entry) => (
               <div key={entry.id} className="w-full text-sm break-words">
-                {entry.message}
+                {entry.username} : {entry.message}
               </div>
             ))}
           </div>
