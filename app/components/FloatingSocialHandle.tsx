@@ -15,17 +15,17 @@ const FloatingSocialHandle: React.FC = () => {
   return (
     <div>
       {socialHandlesVisible && (
-        <div className="fixed bottom-16 left-4 z-10">
+        <div className="fixed bottom-20 mb-5 left-4 z-10">
           <SocialHandles />
         </div>
       )}
 
       <Button
         onClick={toggleSocialHandles}
-        className="fixed bottom-4 bg-teal-100 left-4 z-10 text-white p-2 rounded-full cursor-pointer hover:bg-teal-500 shadow-lg"
-        style={{ width: "40px", height: "40px" }}
+        className="fixed bottom-8 bg-teal-100 left-4 z-10 text-white p-2 rounded-full cursor-pointer hover:bg-teal-500 shadow-lg"
+        style={{ width: "50px", height: "50px" }}
       >
-        {socialHandlesVisible ? <X className="text-teal-500 hover:text-white" /> : <MessagesSquare className="text-teal-500 hover:text-white"/>}
+        {socialHandlesVisible ? <X className="text-teal-500 hover:text-white w-8 h-8" /> : <MessagesSquare className="text-teal-500 hover:text-white w-8 h-8"/>}
       </Button>
     </div>
   );

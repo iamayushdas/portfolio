@@ -39,7 +39,7 @@ const Experience = async () => {
         </h1>
       </div>
       <FloatingSocialHandle />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-5">
         {experiences.map((experience, index) => (
           <div key={index} className="border p-4 rounded shadow">
             <div className="flex flex-col items-center mb-3">
