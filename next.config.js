@@ -8,7 +8,7 @@ module.exports = {
     return [
       {
         source: "/studio/:path*",
-        destination: "https://portfolio-iamayushdas.sanity.studio/:path*",
+        destination: "https://xrt5fta3.sanity.studio/:path*",
       },
     ];
   },
