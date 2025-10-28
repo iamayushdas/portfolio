@@ -41,7 +41,7 @@ const SocialHandles: React.FC = () => {
           viewBox="0 0 48 48"
           fill="currentColor"
           className="w-9 h-9 text-teal-500 hover:text-teal-600"
-          clip-rule="evenodd"
+          clipRule="evenodd"
           baseProfile="basic"
         >
           <polygon
@@ -50,9 +50,9 @@ const SocialHandles: React.FC = () => {
           />
           <polygon
             fill="transparent"
-            fill-rule="evenodd"
+            fillRule="evenodd"
             points="31.143,41 7.82,7 16.777,7 40.1,41"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
           <path
             fill="currentColor"

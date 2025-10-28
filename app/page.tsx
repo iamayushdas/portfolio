@@ -2,6 +2,7 @@ import ParagraphSlider from "./components/ParagraphSlider";
 import Typewriter from "./components/TypeWriter";
 import ImageSwitcher from "./components/ImageSwitcher";
 import Resume from "./components/Resume";
+import AIBotChat from "./components/AIBotChat";
 export default function Home() {
   const paragraphs = [
     "I am a dedicated and versatile software developer passionate about crafting innovative solutions. With a strong foundation in web development and proficiency in technologies like ReactJS, Next.js, GraphQL, SASS, and Azure DevOps, I excel in creating user-centric applications.",
@@ -64,7 +65,7 @@ export default function Home() {
                   viewBox="0 0 48 48"
                   fill="currentColor"
                   className="w-8 h-8 text-teal-500 hover:text-teal-600"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                   baseProfile="basic"
                 >
                   <polygon
@@ -73,9 +74,9 @@ export default function Home() {
                   />
                   <polygon
                     fill="transparent"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     points="31.143,41 7.82,7 16.777,7 40.1,41"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   />
                   <path
                     fill="currentColor"

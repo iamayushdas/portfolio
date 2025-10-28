@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 import Navbar from "./components/Navbar";
 import Provider from "./components/Provider";
 import FloatingSocialHandle from "./components/FloatingSocialHandle";
+import AIBotFloatingWidget from "./components/AIBotFloatingWidget";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +30,7 @@ export default function RootLayout({
             {children}
           </main>
         </Provider>
+        <AIBotFloatingWidget />
       </body>
     </html>
   );
