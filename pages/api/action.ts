@@ -1,17 +1,22 @@
-"use server";
-
-import { revalidatePath } from "next/cache";
+// pages/api/action.ts
+import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../app/db";
 
-export async function postEntry(formData: FormData) {
-  "use server";
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
-  const data = await prisma.guestbook.create({
-    data: {
-      message: formData.get("entry") as string,
-      username: formData.get("username") as string,
-    },
-  });
+  try {
+    const { entry, username } = req.body;
 
-  revalidatePath("/guestbook");
+    const data = await prisma.guestbook.create({
+      data: { message: entry, username },
+    });
+
+    return res.status(200).json({ success: true, data });
+  } catch (error) {
+    console.error("Error creating entry:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
 }
