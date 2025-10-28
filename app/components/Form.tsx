@@ -1,21 +1,37 @@
-
 "use client";
 
-import { useRef } from "react";
-import { postEntry } from "../../pages/api/action";
-import { useFormStatus } from "react-dom";
+import { useRef, useState } from "react";
 
 const Form = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const { pending } = useFormStatus();
+  const [pending, setPending] = useState(false);
 
   return (
     <form
       onSubmit={async (e) => {
         e.preventDefault();
+        setPending(true);
+
         const formData = new FormData(e.target as HTMLFormElement);
-        await postEntry(formData);
-        formRef.current?.reset();
+        const body = {
+          username: formData.get("username"),
+          entry: formData.get("entry"),
+        };
+
+        try {
+          const res = await fetch("/api/action", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+
+          if (!res.ok) throw new Error("Failed to submit entry");
+          formRef.current?.reset();
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setPending(false);
+        }
       }}
       ref={formRef}
       className="relative flex flex-col items-start mb-5"
@@ -41,7 +57,7 @@ const Form = () => {
         disabled={pending}
         className="flex items-center justify-center mt-2 font-medium h-10 bg-teal-500 text-neutral-900 dark:text-neutral-100 rounded w-full"
       >
-        Post Feedback
+        {pending ? "Posting..." : "Post Feedback"}
       </button>
     </form>
   );
