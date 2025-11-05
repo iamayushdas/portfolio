@@ -24,3 +24,13 @@ model ContactForm {
   message   String
   createdAt DateTime @default(now())
 }
+
+model ChatHistory {
+  id        String   @id @default(uuid())
+  sessionId String   // Browser session identifier
+  messages  Json     // Array of {role: 'user'|'assistant', content: string, timestamp: string}
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([sessionId])
+}

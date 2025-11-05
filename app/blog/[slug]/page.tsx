@@ -22,9 +22,10 @@ export const revalidate = 60;
 export default async function BlogArticle({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const blog: blog = await getBlog(params.slug);
+  const { slug } = await params;
+  const blog: blog = await getBlog(slug);
 
   return (
     <div className="mt-8 grid place-items-center">
