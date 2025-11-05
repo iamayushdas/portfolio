@@ -10,11 +10,11 @@
     "postinstall": "prisma generate && prisma migrate deploy"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.17",
+    "@headlessui/react": "^2.2.0",
     "@huggingface/inference": "^4.13.0",
     "@portabletext/react": "^3.0.11",
     "@prisma/client": "^6.18.0",
-    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-slot": "^1.1.0",
     "@sanity/client": "^7.12.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^4.11.0",
