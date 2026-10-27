@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Ayush AI
+
+The portfolio includes a floating AI assistant powered by the Gemini API. It runs in preview mode with local portfolio answers until a key is configured.
+
+To enable live answers, create `.env.local` in the project root:
+
+```bash
+GEMINI_API_KEY=your_google_ai_studio_key
+```
+
+Create a free key in [Google AI Studio](https://aistudio.google.com/apikey), restart the dev server, and open **Ask Ayush AI** in the bottom-right corner. The key is only used by the server-side `/api/chat` route and is never exposed to the browser.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
