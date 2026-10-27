@@ -10,6 +10,7 @@ import {
   Layers,
   BarChart3,
   Mail,
+  Sparkles,
 } from "lucide-react"
 
 const NAV_ITEMS = [
@@ -19,6 +20,8 @@ const NAV_ITEMS = [
   { href: "#skills", label: "Skills", icon: BarChart3 },
   { href: "#contact", label: "Contact", icon: Mail },
 ]
+
+const MOBILE_NAV_ITEMS = NAV_ITEMS.filter((item) => item.href !== "#skills")
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -42,6 +45,28 @@ export function Navigation() {
       window.removeEventListener("hashchange", onHashChange)
     }
   }, [])
+
+  function renderMobileItem(item: (typeof NAV_ITEMS)[number]) {
+    const isActive = activeHash === item.href
+
+    return (
+      <a
+        key={item.href}
+        href={item.href}
+        onClick={() => setActiveHash(item.href)}
+        aria-current={isActive ? "page" : undefined}
+        className={cn(
+          "flex min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-[1rem] px-1.5 py-2 text-[9px] font-medium leading-none transition-all",
+          isActive
+            ? "bg-[#d7ff65] text-[#0a0a0c] shadow-[0_4px_18px_rgba(215,255,101,0.18)]"
+            : "text-white/40 hover:bg-white/8 hover:text-white",
+        )}
+      >
+        <item.icon className="h-4 w-4" />
+        <span className="max-w-full truncate">{item.label}</span>
+      </a>
+    )
+  }
 
   return (
     <>
@@ -93,27 +118,21 @@ export function Navigation() {
 
       {/* Mobile bottom tab bar */}
       <nav className="mobile-tabbar md:hidden fixed inset-x-0 bottom-0 z-40 flex justify-center" aria-label="Mobile navigation">
-        <div className="flex w-full max-w-[380px] items-center gap-1 rounded-[1.4rem] border border-white/15 bg-[#17171c]/75 p-1.5 shadow-[0_18px_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl">
-            {NAV_ITEMS.map((item) => {
-              const isActive = activeHash === item.href
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setActiveHash(item.href)}
-                  aria-current={isActive ? "page" : undefined}
-                  className={cn(
-                    "flex min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-[1rem] px-1.5 py-2 text-[9px] font-medium leading-none transition-all",
-                    isActive
-                      ? "bg-[#d7ff65] text-[#0a0a0c] shadow-[0_4px_18px_rgba(215,255,101,0.18)]"
-                      : "text-white/40 hover:bg-white/8 hover:text-white"
-                  )}
-                >
-                  <item.icon className="h-4 w-4" />
-                  <span className="max-w-full truncate">{item.label}</span>
-                </a>
-              )
-            })}
+        <div className="flex w-full max-w-[390px] items-center gap-1 overflow-visible rounded-[1.4rem] border border-white/15 bg-[#17171c]/75 p-1.5 shadow-[0_18px_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl">
+          {MOBILE_NAV_ITEMS.slice(0, 2).map(renderMobileItem)}
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("open-ai-chat"))}
+            aria-label="Open Ayush AI"
+            className="group flex min-w-0 flex-[1.15] flex-col items-center justify-center gap-1 rounded-[1rem] px-1 py-1 text-[9px] font-medium leading-none text-white/45 transition-colors hover:text-white"
+          >
+            <span className="relative -mt-6 flex h-11 w-11 items-center justify-center rounded-full border-4 border-[#17171c] bg-[#d7ff65] text-[#0a0a0c] shadow-[0_6px_20px_rgba(215,255,101,0.25)] transition-transform group-hover:-translate-y-1">
+              <Sparkles className="h-4 w-4" />
+              <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full border-2 border-[#d7ff65] bg-[#75d7ff]" />
+            </span>
+            <span className="text-[#d7ff65]">Ask AI</span>
+          </button>
+          {MOBILE_NAV_ITEMS.slice(2).map(renderMobileItem)}
         </div>
       </nav>
     </>
